@@ -2,31 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Facebook</h1>
-    <form>
-        <div>
+    <!-- The below h1 will not appear because it is placed within a comment tag -->
+    <!-- <h1 style="
+        border: 50px solid green;
+        border-right-color: blue;
+        color: red;
+        text-align: center;
+      ">
+        Facebook
+    </h1> -->
+    <header id="logo-container">
+        <img src="images/facebook.svg" alt="">
+    </header>
+
+    <form id="reg-form">
+        <div id="form-header">
             <h2>Create a new account</h2>
             <p>It's quick and easy.</p>
         </div>
 
-        <div>
-            <label for="first-name">First Name</label><br>
-            <input type="text" placeholder="John" name="" id="first-name" required>
+        <div class="form-group">
+            <div>
+                <label for="first-name">First Name</label>
+                <input style="display: block;" type="text" placeholder="John" name="" id="first-name" required />
+            </div>
 
-
-            <input type="text" placeholder="Doe" name="" id=""><br>
-            <label for="">Email</label><br>
-            <input type="text" placeholder="user@email.com">
+            <div>
+                <label for="">Email</label>
+                <input type="text" placeholder="user@email.com" />
+            </div>
         </div>
 
         <div>
-            <label>Date of birth</label><br>
+            <label>Date of birth</label><br />
             <select>
                 <option value="24">1</option>
                 <option value="24">2</option>
@@ -48,28 +64,32 @@
         </div>
 
         <div>
-            <label>Gender</label><br>
-            <label for="female">Female</label> <input type="radio" value="female" name="gender">
-            Male <input type="radio" value="male" name="gender">
-            Custom <input type="radio" value="custom" name="gender">
+            <label>Gender</label><br />
+            <label for="female">Female</label>
+            <input type="radio" value="female" name="gender" /> Male
+            <input type="radio" value="male" name="gender" /> Custom
+            <input type="radio" value="custom" name="gender" />
         </div>
 
         <div>
-            <input type="text" placeholder="Mobile number or email address"><br>
-            <input type="text" placeholder="New password">
+            <input type="text" placeholder="Mobile number or email address" /><br />
+            <input type="text" placeholder="New password" />
         </div>
 
         <div>
-            <p>People who use our service may have uploaded your contact information to Facebook. <a
-                    href="https://www.google.com/">Learn more.</a></p>
+            <p>
+                People who use our service may have uploaded your contact information
+                to Facebook. <a href="https://www.google.com/">Learn more.</a>
+            </p>
 
-            <p>By clicking Sign Up, you agree to our <a href="">Terms</a>, <a href="">Privacy Policy</a> and <a
-                    href="">Cookies Policy</a>. You may receive SMS notifications from us and can opt out at any time.
+            <p>
+                By clicking Sign Up, you agree to our <a href="">Terms</a>,
+                <a href="">Privacy Policy</a> and <a href="">Cookies Policy</a>. You
+                may receive SMS notifications from us and can opt out at any time.
             </p>
         </div>
 
-
-        <button>Sign Up</button><br>
+        <button>Sign Up</button><br />
         <a href="">Already have an account?</a>
     </form>
 </body>
