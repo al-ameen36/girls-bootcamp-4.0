@@ -1,0 +1,458 @@
+/* 
+- This is one of the methods of including fonts in you website 
+- Checkout https://fonts.google.com/ for more fonts
+*/
+/* Faustina font */
+@import url("https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap");
+/* Sansation font */
+@import url("https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+* {
+  /* 
+    - This ensure element sizing is behaves predictably
+    - Research the "CSS box model" to understand this behaviour
+    */
+  box-sizing: border-box;
+}
+
+body {
+  /* 
+    - Importing fonts alone is not sufficient. 
+    - You need to define font styles to elements
+    */
+  font-family: "Faustina", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* Reusable style we can use later */
+/* The titles of the headings within the section e.g biography, contact, ... */
+.small-heading,
+#bio h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: grey;
+  font-family: "Sansation", sans-serif;
+}
+
+/* Ensure all sections dont go past a certain width */
+#main-navbar,
+section,
+.divider {
+  /* Uncomment the border property to see the sections' bondaries */
+  /* border: 2px solid red; */
+
+  max-width: 1500px;
+  /* Align the sections automatically to the middle of the page (horizontally) */
+  margin: 0 auto;
+}
+
+/* Give all sections a minimum height of ..px */
+section {
+  min-height: 400px;
+  padding: 100px 0;
+}
+
+/* 
+- Give all section headings the same look
+- This selector means select any <h2> that is a direct child of a <section>
+*/
+section > h2 {
+  font-size: 50px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
+/* Top navigation bar */
+#main-navbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0 20px;
+
+  /* Change font styles for only the top navigation texts */
+  font-family: "Sansation", sans-serif;
+  font-weight: 300;
+}
+
+/* All links in the Top navigation */
+#main-navbar a {
+  color: black;
+  /* Remove underline on links */
+  text-decoration: none;
+  text-transform: uppercase;
+  /* 
+    - Posibble values include numbers as well; 100 to 900 
+    - The higher the number the bolder the text
+  */
+  font-weight: bold;
+}
+
+/* The links part of the navigation */
+#nav-links {
+  display: flex;
+  column-gap: 50px;
+}
+
+/* When the mouse is over the links and social links */
+
+#nav-links a:hover,
+#social-links a:hover {
+  color: tomato;
+}
+
+/* The dots that appear below the links when the mouse is over them */
+#nav-links a {
+  /* 
+    - This tells the browser how to position things
+    - Remind me to discuss this in class 
+    */
+  position: relative;
+}
+
+/* Slow down how fast the styles are applied for both anchor and .dot elements */
+#nav-links a,
+#social-links a,
+#nav-links a .dot {
+  /* 
+    s -> seconds
+    ms -> milli seconds
+    */
+  transition: 300ms;
+}
+
+#nav-links a .dot {
+  background-color: tomato;
+  border-radius: 100%;
+  display: block;
+  height: 8px;
+  width: 8px;
+
+  /* Make it invisible until a mouse is over its link */
+  opacity: 0;
+
+  /* Remind me to discuss this in class */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+}
+
+/* 
+ - The following selector means; 
+ - select any element with ".dot" class that is inside a "#nav-links a" element that has a mouse over it ":hover"
+ */
+#nav-links a:hover .dot {
+  /* Make the dot visible */
+  opacity: 1;
+}
+
+/* Website logo */
+#website-logo {
+  /* 
+    - The navigation bar seems inbalanced 
+    - Move the logo to the left a bit to center it on the page
+    */
+  transform: translateX(-75px);
+}
+
+/* Social media links */
+#social-links {
+  display: flex;
+  gap: 25px;
+}
+
+#social-links a {
+  font-size: 20px;
+  /* 
+    - This ensures that the icons do not get squeshed 
+    - Setting the value to 0 means child elements should not shrink in size
+    - possible values are 0 and 1
+  */
+  flex-shrink: 0;
+}
+
+/* The Hero section */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+/* The huge heading in the first section */
+#hero h1 {
+  text-align: center;
+  font-size: 75px;
+  font-weight: 300;
+}
+
+/* The section with the huge image */
+#bio {
+  display: flex;
+  column-gap: 100px;
+  justify-content: space-between;
+}
+
+/* The huge image container */
+#portrait {
+  /* Create the outer outline of the image */
+  border: 3px solid rgba(192, 192, 192, 0.193);
+  /* Make image container round */
+  border-radius: 500px;
+  padding: 50px;
+}
+
+/* The hude rounded image */
+#portrait img {
+  border-radius: 500px;
+  width: 100%;
+  height: 800px;
+}
+
+/* The left and right parts of the bio section */
+#left-part,
+#right-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 
+Using the same rule to style two different elements. 
+Note: they are comma separated
+*/
+#left-part p,
+#right-part p {
+  font-size: 30px;
+  max-width: 255px;
+  /* 
+  - Remove default margin from paragraphs 
+  - Some elements have default styles
+  */
+  margin: 0;
+}
+
+/* Increase spacing between text lines */
+#left-part p {
+  line-height: 1.6;
+}
+
+#right-part {
+  text-align: right;
+}
+
+/* Add space between <h2> and <p> */
+#left-part h2 {
+  margin-bottom: 50px;
+}
+
+/* The numerical values (<p>) on the right part */
+#right-part p {
+  /* Override font-size that was declared above */
+  font-size: 100px;
+}
+
+/* Partners */
+#partners {
+  align-items: center;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+
+/* Partner image styles (normal) */
+#partners img {
+  opacity: 0.4;
+  /* Make CSS changes smooth */
+  transition: 0.3s;
+}
+
+/* Partner image styles when a mouse is over them */
+#partners img:hover {
+  opacity: 1;
+}
+
+/* A simple section diviver */
+.divider {
+  border-color: rgba(192, 192, 192, 0.193);
+}
+
+/* Education */
+#education h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: grey;
+  font-family: "Sansation", sans-serif;
+  margin-bottom: 80px;
+}
+
+/* Education sections */
+#education-sections {
+  display: flex;
+  justify-content: space-between;
+}
+
+.education-group {
+  margin-bottom: 50px;
+}
+
+.education-group p span {
+  display: block;
+}
+
+/* 
+- Select <span> elements that are the first child of any ".education-group p"
+- Changing nth-child(1) to nth-child(2) will select every second <span> instead
+  */
+.education-group p span:nth-child(1) {
+  font-size: 30px;
+}
+
+/* Projects */
+#projects {
+  /* Absolutly positioned child elements will be positioned relative to this element */
+  position: relative;
+}
+
+#project-controls {
+  display: flex;
+  justify-content: space-between;
+
+  /* calc() allows us to calculate values that will be evaluated at runtime */
+  width: calc(100% + 200px);
+  /* 
+  - Add negative margin to center element on the page 
+  - This is because we added 200px to the element width (100%)
+  - 1/2 of 200px = 100px
+  */
+  margin-left: -100px;
+  /* Position element reletive to its closest relatively positioned parent */
+  position: absolute;
+  /* 
+  - Move element down by 50%
+  - In this context 50% refers to half the parent's height (full height = 100%)
+  */
+  top: 50%;
+}
+
+#project-controls button {
+  background-color: transparent;
+  /* Default border color is black if not specified */
+  border: 1px solid;
+  height: 50px;
+  width: 50px;
+}
+
+#project-controls button:hover {
+  background-color: tomato;
+  /* Font awesome icon color and size can be changed using the color and font-size CSS properties respectively */
+  color: white;
+}
+
+#project-items {
+  display: flex;
+  gap: 70px;
+}
+
+.project {
+  width: 100%;
+}
+
+.project-image {
+  height: 500px;
+  /* This make all colors appear black and white */
+  filter: saturate(0);
+
+  /* Comment out the following lines to see their effects on the image */
+  background-repeat: no-repeat;
+  /* background-position: x-axis y-axis; */
+  background-position: center center;
+  /* 
+  - Make image take up the whole space available
+  - background-size: x-axis y-axis;
+  - can also take in values: cover, contain, ...
+   */
+  background-size: 100% 100%;
+  /* 
+  - Hide any image parts that extend beyond the parent element 
+  - Comment this line to see its effects when the mouse is over the project
+  */
+  overflow: hidden;
+  /* Slow down the transition */
+  transition: 1.3s;
+}
+
+/* Make image zoom in a bit when the mouse is over it */
+.project:hover .project-image {
+  background-size: 110% 110%;
+
+  /* This make all colors come back */
+  filter: saturate(1);
+}
+
+/* Make the text a bit transparent */
+.project p {
+  opacity: 0.5;
+  transition: 1.3s;
+}
+
+.project:hover p {
+  opacity: 1;
+}
+
+.project p span {
+  display: block;
+  font-family: "Sansation", sans-serif;
+}
+
+.project p span:first-child {
+  font-size: 17px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.project p span:nth-child(2) {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/* Call to action */
+#call-to-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#call-to-action > div {
+  border: 3px dotted grey;
+  /* 100% make the borders all round/circle */
+  border-radius: 100%;
+  height: 600px;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cta-btn-container {
+  max-width: 200px;
+}
+
+#call-to-action button {
+  background-color: transparent;
+  border: none;
+  display: block;
+  font-size: 100px;
+  text-align: left;
+  margin: 10px 0;
+  padding: 0;
+}
+
+#cta-arrow {
+  /* Look up rotateZ() on w3schools */
+  transform: rotateZ(-45deg);
+  font-size: 50px;
+}
